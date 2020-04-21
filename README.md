@@ -107,6 +107,33 @@ mType 为请求返回json 字符串对应的bean,默认可以传 null 不进行�
     api files('libs/okio-1.13.0.jar')
 ```
 
+5. 使用方式
+> 在线依赖
+```
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+>  step2
+```
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.chenxiaozong:ChenLibs:v1.0.2'
+	}
+```
+
+
+2. 离线引用:
+aar 下载链接:
+https://gitee.com/chenxiaozong/ChenLibs/releases
+https://github.com/chenxiaozong/ChenLibs/releases/tag/v1.0.2
+
 
 #### 码云特技
 
