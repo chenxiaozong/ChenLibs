@@ -108,7 +108,6 @@ public class ExampleInstrumentedTest {
                     public void onSuccess(BaseBean bean) {
                         System.out.println(bean);
                     }
-
                 });
 
 
@@ -116,12 +115,14 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void testGet() {
-        ChenOkHttp.getInstance().doGet(videoUrl).onResult(null, new ChenResultCallBack<BaseBean>() {
-            @Override
-            public void onSuccess(BaseBean bean) {
+        ChenOkHttp.getInstance()
+                .doGet(videoUrl)
+                .onResult(null, new ChenResultCallBack<BaseBean>() {
+                    @Override
+                    public void onSuccess(BaseBean bean) {
 
-                ChenLog.i("result:>>>",bean);
-            }
-        });
+                        ChenLog.i("result:>>>", bean);
+                    }
+                });
     }
 }
