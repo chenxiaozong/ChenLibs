@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import com.chenlibrary.utils.ChenLog;
 
+import java.net.URL;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -44,6 +45,7 @@ public class ChenOkHttp<T> {
     // 以下是http公共方法
     ///////////////////////////////////////////////////////////////////////////
     public static ChenOkHttp chenOkHttpUtilInstance;
+
     public ChenOkHttp() {
     }
 
@@ -86,11 +88,26 @@ public class ChenOkHttp<T> {
      * @param url
      * @return
      */
-    public ChenBuilder doGet(final String url) {
+    public ChenBuilder doGet(String url) {
         ChenBuilder builder = new ChenBuilder();
         builder.setMethod(GET);
+        url = fixUrl(url);
         builder.tag(url).url(url);
         return builder;
+    }
+
+    /**
+     * 默认增加http请求
+     *
+     * @param url
+     * @return
+     */
+    private String fixUrl(String url) {
+        if (!url.contains("http")) {
+            url = "http://" + url;
+        }
+        ChenLog.i("fixurl:", url);
+        return url;
     }
 
 
@@ -100,9 +117,10 @@ public class ChenOkHttp<T> {
      * @param url
      * @return
      */
-    public ChenBuilder doPost(final String url) {
+    public ChenBuilder doPost(String url) {
         ChenBuilder builder = new ChenBuilder();
         builder.setMethod(POST);
+        url = fixUrl(url);
         builder.tag(url).url(url);
         return builder;
     }
@@ -307,16 +325,16 @@ public class ChenOkHttp<T> {
 //
 //    }
 
-    public static void printOkhttpLog(BaseBean baseBean, boolean isSucces, String info,String type) {
+    public static void printOkhttpLog(BaseBean baseBean, boolean isSucces, String info, String type) {
 
-        String header = ">isSucces = "+isSucces+"<";
-        if (!TextUtils.isEmpty(type)){
+        String header = ">isSucces = " + isSucces + "<";
+        if (!TextUtils.isEmpty(type)) {
             header = type;
         }
 
         if (isSucces) {
             ChenLog.i(TAG,
-                    "\n============================",header,"============================",
+                    "\n============================", header, "============================",
                     "\n [Method  ]:", baseBean.method,
                     "\n [HttpUrl ]:", baseBean.httpUrl,
                     "\n [UrlTag  ]:", baseBean.urlTag,
@@ -330,7 +348,7 @@ public class ChenOkHttp<T> {
             );
         } else {
             ChenLog.e(TAG,
-                    "\n============================",header,"============================",
+                    "\n============================", header, "============================",
                     "\n [Method  ]:", baseBean.method,
                     "\n [HttpUrl ]:", baseBean.httpUrl,
                     "\n [UrlTag  ]:", baseBean.urlTag,

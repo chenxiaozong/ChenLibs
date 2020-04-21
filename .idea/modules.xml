@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ChenLibs.iml" filepath="$PROJECT_DIR$/ChenLibs.iml" group="ChenLibs" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ChenLibs/app" />
+      <module fileurl="file://$PROJECT_DIR$/chenbaselibrary/chenbaselibrary.iml" filepath="$PROJECT_DIR$/chenbaselibrary/chenbaselibrary.iml" group="ChenLibs/chenbaselibrary" />
+    </modules>
+  </component>
+</project>
