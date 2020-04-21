@@ -98,6 +98,11 @@ mType 为请求返回json 字符串对应的bean,默认可以传 null 不进行�
 
 
 
+4. 默认包含如下第三方包
+    api files('libs/gson-2.8.5.jar')
+    api files('libs/okhttp-3.8.1.jar')
+    api files('libs/okio-1.13.0.jar')
+
 #### 码云特技
 
 1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
